@@ -1,0 +1,57 @@
+import { HTMLClip, loadPlugin, AudioPlayback } from "@donkeyclip/motorcortex/";
+
+
+import html from "./index.html";
+import css from "./index.css";
+import { fadeOut } from "../../library/fadeOut";
+import { scaleBig } from "../../library/scaleBig";
+
+
+import Player from "@donkeyclip/motorcortex-player";
+import TypeWritingDefinition from "@donkeyclip/motorcortex-typewriting";
+const TypeWriting = loadPlugin(TypeWritingDefinition);
+
+
+import { loadPlugin } from "@donkeyclip/motorcortex/";
+import SoundDragPlugin from "@donkeyclip/motorcortex-sounddrag";
+const SoundDrag = loadPlugin(SoundDragPlugin);
+import { AudioEffect } from "@donkeyclip/motorcortex";
+
+
+**********************ABOUT SOUND*******************************************
+const typingSound = new AudioPlayback({
+  selector: "~#typing",
+  startFrom: 0,
+  duration:  3000,
+});
+
+const typingSound = new AudioEffect(
+  {
+    animatedAttrs: {
+      pan: 1,
+      gain: 0,
+    },
+  },
+  {
+    selector: "~#typing",
+    duration: 3000,
+  }
+);
+
+const typingSound = new SoundDrag.Track(
+  {
+    name: "typing",
+    startFrom: 0,
+    duration: 2000,
+    fadeIn: false,
+    fadeOut: false,
+  },
+  {
+    repeats: 1,
+    hiatus: 1000,
+    delay: 0,
+    id: "typing",
+  }
+);
+
+clip.addIncident(typingSound, 0);
